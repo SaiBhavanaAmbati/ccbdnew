@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>	
+
+
+<body onload="func2(this)">
+
+    <h1>{{session['username']}}</h1>
+
+    <p><button onclick="clickCounter(this)" type="button">Click me!</button></p>
+
+    <input type="hidden" id="hdnSession" data-value="@Request.RequestContext.HttpContext.Session['username']" />
+
+	<h2>Hello There !</h2>
+
+    <div id="result">
+
+    </div>
+
+    <div id="main_content">
+
+    <input type='file' id="bannerImage" />
+
+    <button onclick="ok(this)" type="button">Upload!</button>
+
+    <button onclick="follower(this)" type="button">Other users!</button>
+
+    
+
+    </div>
+
+    <div>
+
+    <script>
+
+        var count=0;
+
+        function func2()
+        {
+            var x = localStorage.getItem("name2");
+
+            alert(x);
+
+            var len = localStorage.length;
+
+            for ( var i = 0; i < len; ++i )
+            {
+
+
+                var key = localStorage.key(i);
+
+                alert(key);
+
+                alert(typeof(key));
+
+                if(key.indexOf("pic")==0 && key.indexOf(x)==3)
+                {
+                    alert("hello");
+                    var dataImage = localStorage.getItem(key);
+
+                    alert(dataImage);
+                    alert(typeof(dataImage));
+
+                    alert("hello2");
+
+                    var btn1 = document.createElement("IMG");
+                    btn1.setAttribute("src",dataImage);
+                    btn1.setAttribute("alt", "image"+count);
+
+                    alert("hello3");
+
+                    document.body.appendChild(btn1);
+
+                    alert("hello4");
+                    
+                    count++;
+                    
+                }
+
+
+            }
+
+            
+
+        }
+
+        
+        function ok()
+        {
+            alert("hello3");
+            bannerImage = document.getElementById('bannerImage').value;
+            alert(bannerImage);
+
+            var s1 = "pic";
+            var key2 = localStorage.getItem("name2");
+            alert(key2);
+
+            var key3 = String(count);
+            var join = s1.concat(key2);
+            var new_key = join.concat(key3);
+            alert(new_key);
+
+
+            localStorage.setItem(new_key,bannerImage);
+            var z=localStorage.getItem(new_key);
+            alert(z);
+
+            var s5="userhello";
+            var key6 = s5.concat(key2);
+            localStorage.setItem(key6,"1");
+
+            count++;
+
+        }
+
+        function follower()
+        {
+
+            var len2 = localStorage.length;
+
+            for(var j=0;j<len;j++)
+            {
+                var key2 = localStorage.key(i);
+
+                if(key.substr(0,8)=="userhello")
+                {
+                    int length2 = key2.length - 1;
+                    var username = key2.substr(9,length2);
+
+                    var k = document.createElement("p");
+                    k.innerText = username;
+
+                    document.body.appendChild(k);
+
+                }
+            }
+        }
+
+
+        
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+
+-->
+{% extends "base.html" %}
+
+{% block body %}
+
+<h2>Login</h2>
+{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+<form action="{{ url_for('login') }}" method="post">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+    <dl>
+        <dt>Username:
+        <dd><input type="text" name="username">
+        <dt>Password:
+        <dd><input type="password" name="pass">
+        <dd><dd>		
+        <dd><input type="submit" value="Login">
+        <dd><dd>
+        <dd>Dont have an account? <a href="{{ url_for('register')}}">Sign up here</a>.
+    </dl>
+	
+</form>
+
+{% endblock %}

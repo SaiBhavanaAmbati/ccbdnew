@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Flask test</title>
+    <link rel=stylesheet  type=text/css  href="{{ url_for('static', filename='style.css') }}">
+	
+	
+</head>
+
+<body>
+
+
+<div id="main_content">
+	<h2>Register</h2>
+	{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+	
+	<form id= "myForm" action="{{ url_for('register') }}" method="post">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+	<dl>
+        <dt>Username:
+        <dd><input type="text"  id="id1"   name="username">
+        <dt>Password:
+        <dd><input type="password"   name="pass">
+		<dd><dd>
+		<dd><input type="button" onclick="sayHello()" value="Click if not robot" />
+        <dd><dd>		
+        <dd><input type="submit" value="register">
+    </dl>
+	
+	</form>
+
+</div>
+
+<p id="demo"></p>
+
+<script>
+	
+	function sayHello()
+	{
+		var x = document.getElementById("myForm").elements[1].value;
+		localStorage.setItem("name2",x);
+		var y= localStorage.getItem("name2");
+		alert(y);
+    	document.getElementById("demo").innerHTML = x;
+	}
+
+</script>
+
+</body>
+</html>
+
+

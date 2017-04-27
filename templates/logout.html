@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<head>
+	<title>User</title>
+</head>
+<body onload="func4()">
+
+
+
+	<h1> Follow </h1>
+
+	<input type="text"  id="id2"   name="username2">
+	
+
+	<script>
+
+	function func4()
+
+	{
+
+		var len2 = localStorage.length;
+
+		for(var j=0;j<len;j++)
+		{
+			var key2 = localStorage.key(i);
+
+			if(key2.substr(0,8)=="userhello")
+			{
+				int length2 = key2.length - 1;
+				var username = key2.substr(9,length2);
+
+				var k = document.createElement("h2");
+				k.innerText=username;
+
+				document.body.appendChild(k);
+
+			}
+		}
+
+
+		var g = document.getElementById("id2").value;
+
+		localStorage.setItem("name2",g);
+
+	}
+
+	</script>
+
+
+	
+	
+</body>
+
+</html>
+
+
+
+
+
+<input type="text"  id="id2"  name="username2">
+
+    <button onclick="follower2(this)" type="button">Follow!</button>
+
+
+
+
+ function follower()
+
+        {
+
+            var len2 = localStorage.length;
+
+            for(var j=0;j<len;j++)
+            {
+                var key2 = localStorage.key(i);
+
+                if(key.substr(0,8)=="userhello")
+                {
+                    int length2 = key2.length - 1;
+                    var username = key2.substr(9,length2);
+
+                    var k = document.createElement("p");
+                    k.innerText = username;
+
+                    document.body.appendChild(k);
+
+                }
+            }
+        }
+
+
+        function follower2()
+        {
+            var g = document.getElementById("id2").value;
+
+            for ( var i = 0; i < len; ++i )
+            {
+
+                var key7 = localStorage.key(i);
+
+                alert(key7);
+
+                alert(typeof(key7));
+
+                if(key7.indexOf("pic")==0 && key7.indexOf(g)==3)
+                {
+                    alert("hello");
+                    var dataImage = localStorage.getItem(key);
+
+                    alert(dataImage);
+                    alert(typeof(dataImage));
+
+                    alert("hello2");
+
+                    var btn1 = document.createElement("IMG");
+                    btn1.setAttribute("src",dataImage);
+                    btn1.setAttribute("alt", "image"+count);
+
+                    alert("hello3");
+
+                    document.body.appendChild(btn1);
+
+                    alert("hello4");
+                    
+                }
+
+
+            }
+
+        }
+
+
